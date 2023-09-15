@@ -18,6 +18,43 @@ const data = [
     }
 ]
 
+let coleccionArticulosPokemon = ""
+
+for (const pokemon of data) {
+  coleccionArticulosPokemon +=
+  `
+  <article>
+        <img
+          src=${pokemon.thumbnail}
+          class="icon-type"
+          alt="icon type"
+        />
+        <p>
+          ${pokemon.name}
+        </p>
+  </article>
+  `
+};
+
+const seccion = document.querySelector("section");
+
+seccion.innerHTML = coleccionArticulosPokemon;
+
+const articulos = document.querySelectorAll("article");
+
+for (const pokemon of articulos) {
+  pokemon.addEventListener("mouseover", function () {
+    pokemon.classList.add("planta");
+  });
+
+  pokemon.addEventListener("mouseout", function () {
+    pokemon.classList.remove("planta");
+  });
+};
+
+
+
+
 /* Enunciado
 1) Utilice el array data para completar la página de pokemones,
 como ejemplo se puede guiar por el siguiente "article", deberá
